@@ -32,6 +32,22 @@ public class Funciones {
         twitter = tf.getInstance();
     }
     
+    /**
+     * Aqui enviara un mensaje por twitter a una cuenta especificada
+     * @param Destinatario Es la cuenta a la que queremos enviarle el mensaje
+     * @param Mensaje Es el mensaje que queremos enviar
+     */
+    public void enviarMensaje(String Destinatario, String Mensaje) {
+        DirectMessage message;
+        try {
+            message = twitter.sendDirectMessage(Destinatario, Mensaje);
+            System.out.println("Sent: " + message.getText() + " to @" + message.getRecipientScreenName());
+        } catch (TwitterException ex) {
+            System.out.println("Error al twittear");
+        }
+    }
+    
+    
     
 
 }
