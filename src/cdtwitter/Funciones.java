@@ -63,6 +63,18 @@ public class Funciones {
         }
     }
     
+    /**
+     * Aqui podremos lanzar un mensaje por twitter
+     * @param Mensaje Es el mensaje que queremos poner como estado
+     */
+    public void twittear(String Mensaje) {
+        try {
+            twitter.updateStatus(Mensaje);
+        } catch (TwitterException ex) {
+            System.out.println("Error post");
+        }
+    }
+    
     
 
 }
