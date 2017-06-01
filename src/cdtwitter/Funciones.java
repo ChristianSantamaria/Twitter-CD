@@ -47,6 +47,21 @@ public class Funciones {
         }
     }
     
+    /**
+     * Aqui nos mostrara todos los twitts me nosotros tenemos en el inicio de twitter
+     */
+    public void lineaTiempo() {
+        try {
+            Paging pagina = new Paging();
+            pagina.setCount(40);
+            ResponseList listado = twitter.getHomeTimeline(pagina);
+            for (int i = 0; i < listado.size(); i++) {
+                System.out.println(listado.get(i).toString());
+            }
+        } catch (TwitterException ex) {
+            System.out.println("Error al ver la linea de tiempo");
+        }
+    }
     
     
 
