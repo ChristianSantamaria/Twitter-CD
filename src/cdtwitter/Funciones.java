@@ -75,6 +75,22 @@ public class Funciones {
         }
     }
     
+    /**
+     * Aqui buscaremos por un twitt especificado  
+     * @param Twit Es el twitt que queremos buscar siempre empieza por #
+     */
+    public void buscarTwit(String Twit) {
+        try {
+            Query query = new Query(Twit);
+            QueryResult result = twitter.search(query);
+            for (Status status : result.getTweets()) {
+                System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+            }
+        } catch (TwitterException ex) {
+            System.out.println("Error al buscar");
+        }
+    }
+    
     
 
 }
